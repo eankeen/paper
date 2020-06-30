@@ -1,0 +1,8 @@
+{
+  "name": "paper",
+	"main": "index.js",
+  "license": "",
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  }
+}
