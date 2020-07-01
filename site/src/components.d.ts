@@ -16,10 +16,13 @@ export namespace Components {
     interface AppRoot {
     }
     interface CategoryColumn {
-        "column": string;
+        "columnIndex": number;
+        "columnName": string;
         "items": IItem[];
+        "selected": { x: number, y: number };
     }
     interface CategoryItem {
+        "isSelected": boolean;
         "name": string;
         "status": string;
     }
@@ -81,12 +84,15 @@ declare namespace LocalJSX {
     interface AppRoot {
     }
     interface CategoryColumn {
-        "column": string;
+        "columnIndex": number;
+        "columnName": string;
         "items": IItem[];
+        "selected": { x: number, y: number };
     }
     interface CategoryItem {
-        "name"?: string;
-        "status"?: string;
+        "isSelected": boolean;
+        "name": string;
+        "status": string;
     }
     interface CategoryPanel {
     }

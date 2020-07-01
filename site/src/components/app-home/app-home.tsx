@@ -23,24 +23,41 @@ async function get(): Promise<ITodoItem[]> {
 })
 export class AppHome {
   @State() todoItems: ITodoItem[]
+  @State() selected: { x: number, y: number } = {
+	  x: 1,
+	  y: 0
+  }
+  @State() i: Record<string, any>
 
   componentWillLoad() {
     get()
       .then(data => {
         this.todoItems = data
-      })
+			this.i = {
+				'thinking-about': data.filter(item => item.status === 'thinking-about'),
+				'stalled': data.filter(item => item.status === 'stalled')
+			}
+		})
   }
 
   render() {
     return (
       <div class='app-home'>
 			<category-panel>
-				<category-column items={this.todoItems} column="thinking-about"></category-column>
-				<category-column items={this.todoItems} column="stalled"></category-column>
-				<category-column items={this.todoItems} column="todo"></category-column>
-				<category-column items={this.todoItems} column="in-progress"></category-column>
-				<category-column items={this.todoItems} column="waiting"></category-column>
-				<category-column items={this.todoItems} column="done"></category-column>
+				{
+					this.i && [
+						"thinking-about",
+						"stalled",
+						// "todo",
+						// "in-progress",
+						// "waiting",
+						// "done"
+					].map((columnName, columnIndex) => {
+						return (
+							<category-column key={columnIndex} items={this.todoItems} selected={this.i[columnName]} columnName={columnName} columnIndex={columnIndex}></category-column>
+						)
+					})
+				}
 			</category-panel>
 
 

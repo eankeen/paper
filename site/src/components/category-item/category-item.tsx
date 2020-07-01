@@ -17,12 +17,13 @@ export interface IItem {
   shadow: true
 })
 export class CategoryItem {
-  @Prop() name: string
-  @Prop() status: string
+  @Prop() name!: string
+  @Prop() status!: string
+  @Prop() isSelected!: boolean
 
   render() {
     return (
-		<section>
+		<section class={this.isSelected ? "selected" : ""}>
 			<h2>{this.name}</h2>
 			<p>{this.status}</p>
 		</section>

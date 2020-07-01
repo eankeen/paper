@@ -4,8 +4,8 @@ section {
   border: 2px solid gray;
 }
 
-category-item.selected {
-  border: 1px solid black;
+section.selected {
+  border: 2px solid black;
 }
 
 h2, p {
