@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults } from "@stencil/router";
+import { IItem } from "./components/category-item/category-item";
 export namespace Components {
     interface AppHome {
     }
@@ -14,9 +15,15 @@ export namespace Components {
     }
     interface AppRoot {
     }
-    interface TodoItem {
+    interface CategoryColumn {
+        "column": string;
+        "items": IItem[];
+    }
+    interface CategoryItem {
         "name": string;
         "status": string;
+    }
+    interface CategoryPanel {
     }
 }
 declare global {
@@ -38,17 +45,31 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
-    interface HTMLTodoItemElement extends Components.TodoItem, HTMLStencilElement {
+    interface HTMLCategoryColumnElement extends Components.CategoryColumn, HTMLStencilElement {
     }
-    var HTMLTodoItemElement: {
-        prototype: HTMLTodoItemElement;
-        new (): HTMLTodoItemElement;
+    var HTMLCategoryColumnElement: {
+        prototype: HTMLCategoryColumnElement;
+        new (): HTMLCategoryColumnElement;
+    };
+    interface HTMLCategoryItemElement extends Components.CategoryItem, HTMLStencilElement {
+    }
+    var HTMLCategoryItemElement: {
+        prototype: HTMLCategoryItemElement;
+        new (): HTMLCategoryItemElement;
+    };
+    interface HTMLCategoryPanelElement extends Components.CategoryPanel, HTMLStencilElement {
+    }
+    var HTMLCategoryPanelElement: {
+        prototype: HTMLCategoryPanelElement;
+        new (): HTMLCategoryPanelElement;
     };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
-        "todo-item": HTMLTodoItemElement;
+        "category-column": HTMLCategoryColumnElement;
+        "category-item": HTMLCategoryItemElement;
+        "category-panel": HTMLCategoryPanelElement;
     }
 }
 declare namespace LocalJSX {
@@ -59,15 +80,23 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
-    interface TodoItem {
+    interface CategoryColumn {
+        "column": string;
+        "items": IItem[];
+    }
+    interface CategoryItem {
         "name"?: string;
         "status"?: string;
+    }
+    interface CategoryPanel {
     }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
-        "todo-item": TodoItem;
+        "category-column": CategoryColumn;
+        "category-item": CategoryItem;
+        "category-panel": CategoryPanel;
     }
 }
 export { LocalJSX as JSX };
@@ -77,7 +106,9 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-            "todo-item": LocalJSX.TodoItem & JSXBase.HTMLAttributes<HTMLTodoItemElement>;
+            "category-column": LocalJSX.CategoryColumn & JSXBase.HTMLAttributes<HTMLCategoryColumnElement>;
+            "category-item": LocalJSX.CategoryItem & JSXBase.HTMLAttributes<HTMLCategoryItemElement>;
+            "category-panel": LocalJSX.CategoryPanel & JSXBase.HTMLAttributes<HTMLCategoryPanelElement>;
         }
     }
 }

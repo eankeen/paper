@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
 find ./ | entr -rc go run server.go &
-cd site && pnpm run start &
+cd site && yarn start &
 sleep 1
-cd proxy && pnpm run start &
+cd proxy && yarn start &

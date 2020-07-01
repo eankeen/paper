@@ -1,5 +1,5 @@
 import { Component, State, h } from '@stencil/core';
-import { ITodoItem } from '../todo-item/todo-item';
+import { ITodoItem } from '../category-item/category-item';
 
 async function get(): Promise<ITodoItem[]> {
   try {
@@ -27,29 +27,25 @@ export class AppHome {
   componentWillLoad() {
     get()
       .then(data => {
-        console.log(data)
         this.todoItems = data
       })
   }
 
   render() {
-    const todoItems = [
-      { name: "name", status: "status"},
-      { name: "name2", status: "status2"}
-    ];
-
     return (
       <div class='app-home'>
-        {
-          (this.todoItems || todoItems).map(({name, status }) => {
-            return <todo-item name={name} status={status}></todo-item>;
-          })
-        }
-        <stencil-route-link url='/profile/stencil'>
+			<category-panel>
+				<category-column items={this.todoItems} column="in-progress"></category-column>
+				<category-column items={this.todoItems} column="in progress"></category-column>
+				<category-column items={this.todoItems} column="in progress"></category-column>
+			</category-panel>
+
+
+        {/* <stencil-route-link url='/profile/stencil'>
           <button>
             Profile page
           </button>
-        </stencil-route-link>
+        </stencil-route-link> */}
       </div>
     );
   }
