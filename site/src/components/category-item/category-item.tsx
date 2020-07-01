@@ -22,10 +22,10 @@ export class CategoryItem {
 
   render() {
     return (
-		<article class="category-item">
+		<section>
 			<h2>{this.name}</h2>
 			<p>{this.status}</p>
-		</article>
+		</section>
     )
   }
 }

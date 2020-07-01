@@ -19,8 +19,10 @@ export class CategoryColumn {
       <article class="category-column">
         {
 				(this.items || defaultItems).map(({name, status }) => {
-					return <category-item name={name} status={status}></category-item>;
-				})
+					return status === this.column
+						? <category-item name={name} status={status}></category-item>
+						: undefined
+					})
 			}
       </article>
     )

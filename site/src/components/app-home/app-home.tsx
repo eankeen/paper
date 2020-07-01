@@ -35,9 +35,12 @@ export class AppHome {
     return (
       <div class='app-home'>
 			<category-panel>
+				<category-column items={this.todoItems} column="thinking-about"></category-column>
+				<category-column items={this.todoItems} column="stalled"></category-column>
+				<category-column items={this.todoItems} column="todo"></category-column>
 				<category-column items={this.todoItems} column="in-progress"></category-column>
-				<category-column items={this.todoItems} column="in progress"></category-column>
-				<category-column items={this.todoItems} column="in progress"></category-column>
+				<category-column items={this.todoItems} column="waiting"></category-column>
+				<category-column items={this.todoItems} column="done"></category-column>
 			</category-panel>
 
 

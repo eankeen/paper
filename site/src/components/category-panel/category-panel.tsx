@@ -7,9 +7,7 @@ import { Component, h } from '@stencil/core';
 export class CategoryPanel {
 	render() {
 		return (
-			<section class="category-panel">
-				<slot></slot>
-			</section>
+			<slot></slot>
 		);
 	}
 }
