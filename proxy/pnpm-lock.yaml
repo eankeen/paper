@@ -1,0 +1,30 @@
+devDependencies:
+  http-proxy: 1.18.1
+lockfileVersion: 5.1
+packages:
+  /eventemitter3/4.0.4:
+    dev: true
+    resolution:
+      integrity: sha512-rlaVLnVxtxvoyLsQQFBx53YmXHDxRIzzTLbdfxqi4yocpSjAxXwkU0cScM5JgSKMqEhrZpnvQ2D9gjylR0AimQ==
+  /follow-redirects/1.12.1:
+    dev: true
+    engines:
+      node: '>=4.0'
+    resolution:
+      integrity: sha512-tmRv0AVuR7ZyouUHLeNSiO6pqulF7dYa3s19c6t+wz9LD69/uSzdMxJ2S91nTI9U3rt/IldxpzMOFejp6f0hjg==
+  /http-proxy/1.18.1:
+    dependencies:
+      eventemitter3: 4.0.4
+      follow-redirects: 1.12.1
+      requires-port: 1.0.0
+    dev: true
+    engines:
+      node: '>=8.0.0'
+    resolution:
+      integrity: sha512-7mz/721AbnJwIVbnaSv1Cz3Am0ZLT/UBwkC92VlxhXv/k/BBQfM2fXElQNC27BVGr0uwUpplYPQM9LnaBMR5NQ==
+  /requires-port/1.0.0:
+    dev: true
+    resolution:
+      integrity: sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
+specifiers:
+  http-proxy: ^1.18.1

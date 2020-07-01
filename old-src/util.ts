@@ -17,3 +17,5 @@ export function globalStyleInjector(d: typeof document) {
 	// @ts-ignore
 	style.sheet.insertRule(commonStyleInjection)
 }
+
+export function set

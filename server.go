@@ -26,7 +26,7 @@ func main() {
 	fs := http.FileServer(http.Dir("./public"))
 	http.Handle("/", fs)
 
-	http.HandleFunc("/store", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/store", func(w http.ResponseWriter, r *http.Request) {
 		_, filename, _, ok := runtime.Caller(0)
 		if !ok {
 			fmt.Println("could not access stack")

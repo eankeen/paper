@@ -1,16 +1,12 @@
-store/store.json
-tsconfig.tsbuildinfo
 dist/
 !www/favicon.ico
 www/
 *.log
 *.lock
 *.tmp
-*.tmp.*
 .stencil/
 .idea/
 .vscode/
-.sass-cache/
 .versions/
 node_modules/
 .env
