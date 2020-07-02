@@ -1,7 +1,7 @@
 {
   "name": "src",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Stencil App Starter",
   "scripts": {
     "build": "stencil build",
@@ -12,7 +12,15 @@
   },
   "devDependencies": {
     "@stencil/core": "^1.12.2",
-    "@stencil/router": "^1.0.1"
+    "@stencil/router": "^1.0.1",
+    "fox-suite": "^1.2.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fox-plugin-eslint": "^1.2.5",
+    "fox-plugin-markdownlint": "^1.2.5",
+    "fox-plugin-prettier": "^1.2.5",
+    "fox-plugin-stylelint": "^1.2.5",
+    "fox-utils": "^1.2.2"
+  }
 }

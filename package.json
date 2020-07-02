@@ -1,0 +1,10 @@
+{
+	"devDependencies": {
+		"fox-suite": "^1.2.6",
+		"fox-plugin-editorconfig": "^1.2.6",
+		"fox-plugin-prettier": "^1.2.6",
+		"fox-plugin-eslint": "^1.2.6",
+		"fox-plugin-stylelint": "^1.2.6",
+		"fox-plugin-markdownlint": "^1.2.6"
+	}
+}
