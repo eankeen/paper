@@ -9,8 +9,5 @@
     "vue",
     "html",
     "javacsript"
-  ],
-  "eslint.options": {
-    "configFile": ".config/build/eslint.config.js"
-  }
+  ]
 }

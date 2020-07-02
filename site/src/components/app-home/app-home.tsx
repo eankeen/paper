@@ -1,13 +1,13 @@
 import { Component, State, h } from '@stencil/core';
-import { ITodoItem } from '../category-item/category-item';
+import { ICategoryCard } from '../category-card/category-card';
 
-async function get(): Promise<ITodoItem[]> {
+async function get(): Promise<ICategoryCard[]> {
   try {
     const res = await fetch("/api/store");
     if (res.status === 200) {
       const json = await res.json()
       // @ts-ignore
-      return json.cards
+      return json
     } else {
       throw new Error("status not 200");
     }
@@ -22,7 +22,7 @@ async function get(): Promise<ITodoItem[]> {
   shadow: true
 })
 export class AppHome {
-  @State() todoItems: ITodoItem[]
+  @State() cards: any[]
   @State() selected: { x: number, y: number } = {
 	  x: 1,
 	  y: 0
@@ -31,13 +31,53 @@ export class AppHome {
 
   componentWillLoad() {
     get()
-      .then(data => {
-        this.todoItems = data
-			this.i = {
-				'thinking-about': data.filter(item => item.status === 'thinking-about'),
-				'stalled': data.filter(item => item.status === 'stalled')
+      .then((data: any) => {
+			const statuses = ["thinking-about", "stalled", "todo", "in-progress", "waiting", "done"]
+			const cards = [];
+			for (const status of statuses) {
+				cards.push(data.cards.filter(c => {
+					return c.status === status
+				}))
 			}
+			this.cards = cards
 		})
+
+
+		// TODO: remove event listeners on component removal /
+		// use frameowork method
+		document.addEventListener("keydown", (ev) => {
+if (ev.altKey && ev.shiftKey && ev.code === "KeyL") {
+	const card = this.cards[this.selected.x][this.selected.y]
+	// let arr = this.cards[this.selected.x][this.selected.y].splice(this.selected.y, 1)
+	const cards = this.cards
+	cards[this.selected.x].splice(this.selected.y, 1)
+	this.cards = cards
+	console.log(cards)
+	return
+}
+
+		if (ev.altKey && ev.code === "KeyJ") {
+			this.selected = {
+				x: this.selected.x,
+				y: this.selected.y + 1
+			}
+		} else if (ev.altKey && ev.code === "KeyK") {
+			this.selected = {
+  x: this.selected.x,
+  y: this.selected.y - 1,
+};
+		} else if (ev.altKey && ev.code === "KeyH") {
+			this.selected = {
+				x: this.selected.x - 1,
+				y: this.selected.y
+			}
+		} else if (ev.altKey && ev.code === "KeyL") {
+			this.selected = {
+  x: this.selected.x + 1,
+  y: this.selected.y,
+};
+		}console.log(this.selected);
+});
   }
 
   render() {
@@ -45,16 +85,18 @@ export class AppHome {
       <div class='app-home'>
 			<category-panel>
 				{
-					this.i && [
+					this.cards && [
 						"thinking-about",
 						"stalled",
-						// "todo",
-						// "in-progress",
-						// "waiting",
-						// "done"
+						"todo",
+						"in-progress",
+						"waiting",
+						"done"
 					].map((columnName, columnIndex) => {
 						return (
-							<category-column key={columnIndex} items={this.todoItems} selected={this.i[columnName]} columnName={columnName} columnIndex={columnIndex}></category-column>
+							<category-column key={columnIndex} cards={this.cards[columnIndex]}
+							selectedCard={this.selected}
+							columnIndex={columnIndex}></category-column>
 						)
 					})
 				}

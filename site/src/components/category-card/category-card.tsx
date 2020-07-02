@@ -1,19 +1,13 @@
 import { Component, Prop, h } from '@stencil/core';
 
-export interface ITodoItem {
-  name: string
-  status: string
+export interface ICategoryCard {
+  name: string;
+  status: string;
 }
-
-export interface IItem {
-  name: string
-  status: string
-}
-
 
 @Component({
-  tag: 'category-item',
-  styleUrl: 'category-item.css',
+  tag: 'category-card',
+  styleUrl: 'category-card.css',
   shadow: true
 })
 export class CategoryItem {

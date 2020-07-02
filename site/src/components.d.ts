@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults } from "@stencil/router";
-import { IItem } from "./components/category-item/category-item";
+import { ICategoryCard } from "./components/category-card/category-card";
 export namespace Components {
     interface AppHome {
     }
@@ -15,16 +15,15 @@ export namespace Components {
     }
     interface AppRoot {
     }
-    interface CategoryColumn {
-        "columnIndex": number;
-        "columnName": string;
-        "items": IItem[];
-        "selected": { x: number, y: number };
-    }
-    interface CategoryItem {
+    interface CategoryCard {
         "isSelected": boolean;
         "name": string;
         "status": string;
+    }
+    interface CategoryColumn {
+        "cards": ICategoryCard[];
+        "columnIndex": number;
+        "selectedCard": { x: number, y: number };
     }
     interface CategoryPanel {
     }
@@ -48,17 +47,17 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLCategoryCardElement extends Components.CategoryCard, HTMLStencilElement {
+    }
+    var HTMLCategoryCardElement: {
+        prototype: HTMLCategoryCardElement;
+        new (): HTMLCategoryCardElement;
+    };
     interface HTMLCategoryColumnElement extends Components.CategoryColumn, HTMLStencilElement {
     }
     var HTMLCategoryColumnElement: {
         prototype: HTMLCategoryColumnElement;
         new (): HTMLCategoryColumnElement;
-    };
-    interface HTMLCategoryItemElement extends Components.CategoryItem, HTMLStencilElement {
-    }
-    var HTMLCategoryItemElement: {
-        prototype: HTMLCategoryItemElement;
-        new (): HTMLCategoryItemElement;
     };
     interface HTMLCategoryPanelElement extends Components.CategoryPanel, HTMLStencilElement {
     }
@@ -70,8 +69,8 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-profile": HTMLAppProfileElement;
         "app-root": HTMLAppRootElement;
+        "category-card": HTMLCategoryCardElement;
         "category-column": HTMLCategoryColumnElement;
-        "category-item": HTMLCategoryItemElement;
         "category-panel": HTMLCategoryPanelElement;
     }
 }
@@ -83,16 +82,15 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
-    interface CategoryColumn {
-        "columnIndex": number;
-        "columnName": string;
-        "items": IItem[];
-        "selected": { x: number, y: number };
-    }
-    interface CategoryItem {
+    interface CategoryCard {
         "isSelected": boolean;
         "name": string;
         "status": string;
+    }
+    interface CategoryColumn {
+        "cards": ICategoryCard[];
+        "columnIndex": number;
+        "selectedCard": { x: number, y: number };
     }
     interface CategoryPanel {
     }
@@ -100,8 +98,8 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-profile": AppProfile;
         "app-root": AppRoot;
+        "category-card": CategoryCard;
         "category-column": CategoryColumn;
-        "category-item": CategoryItem;
         "category-panel": CategoryPanel;
     }
 }
@@ -112,8 +110,8 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "category-card": LocalJSX.CategoryCard & JSXBase.HTMLAttributes<HTMLCategoryCardElement>;
             "category-column": LocalJSX.CategoryColumn & JSXBase.HTMLAttributes<HTMLCategoryColumnElement>;
-            "category-item": LocalJSX.CategoryItem & JSXBase.HTMLAttributes<HTMLCategoryItemElement>;
             "category-panel": LocalJSX.CategoryPanel & JSXBase.HTMLAttributes<HTMLCategoryPanelElement>;
         }
     }

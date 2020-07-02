@@ -6,6 +6,7 @@ section {
 
 section.selected {
   border: 2px solid black;
+	box-shadow: 1px 1px 3px 3px lightgray;
 }
 
 h2, p {
