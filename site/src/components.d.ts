@@ -8,117 +8,111 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MatchResults } from "@stencil/router";
 import { ICategoryCard } from "./components/category-card/category-card";
 export namespace Components {
-	interface AppHome {}
-	interface AppProfile {
-		match: MatchResults;
-	}
-	interface AppRoot {}
-	interface CategoryCard {
-		isSelected: boolean;
-		name: string;
-		status: string;
-	}
-	interface CategoryColumn {
-		cards: ICategoryCard[];
-		columnIndex: number;
-		selectedCard: { x: number; y: number };
-	}
-	interface CategoryPanel {}
+    interface AppHome {
+    }
+    interface AppProfile {
+        "match": MatchResults;
+    }
+    interface AppRoot {
+    }
+    interface CategoryCard {
+        "isSelected": boolean;
+        "name": string;
+        "status": string;
+    }
+    interface CategoryColumn {
+        "cards": ICategoryCard[];
+        "columnIndex": number;
+        "selectedCard": { x: number; y: number };
+    }
+    interface CategoryPanel {
+    }
 }
 declare global {
-	interface HTMLAppHomeElement
-		extends Components.AppHome,
-			HTMLStencilElement {}
-	var HTMLAppHomeElement: {
-		prototype: HTMLAppHomeElement;
-		new (): HTMLAppHomeElement;
-	};
-	interface HTMLAppProfileElement
-		extends Components.AppProfile,
-			HTMLStencilElement {}
-	var HTMLAppProfileElement: {
-		prototype: HTMLAppProfileElement;
-		new (): HTMLAppProfileElement;
-	};
-	interface HTMLAppRootElement
-		extends Components.AppRoot,
-			HTMLStencilElement {}
-	var HTMLAppRootElement: {
-		prototype: HTMLAppRootElement;
-		new (): HTMLAppRootElement;
-	};
-	interface HTMLCategoryCardElement
-		extends Components.CategoryCard,
-			HTMLStencilElement {}
-	var HTMLCategoryCardElement: {
-		prototype: HTMLCategoryCardElement;
-		new (): HTMLCategoryCardElement;
-	};
-	interface HTMLCategoryColumnElement
-		extends Components.CategoryColumn,
-			HTMLStencilElement {}
-	var HTMLCategoryColumnElement: {
-		prototype: HTMLCategoryColumnElement;
-		new (): HTMLCategoryColumnElement;
-	};
-	interface HTMLCategoryPanelElement
-		extends Components.CategoryPanel,
-			HTMLStencilElement {}
-	var HTMLCategoryPanelElement: {
-		prototype: HTMLCategoryPanelElement;
-		new (): HTMLCategoryPanelElement;
-	};
-	interface HTMLElementTagNameMap {
-		"app-home": HTMLAppHomeElement;
-		"app-profile": HTMLAppProfileElement;
-		"app-root": HTMLAppRootElement;
-		"category-card": HTMLCategoryCardElement;
-		"category-column": HTMLCategoryColumnElement;
-		"category-panel": HTMLCategoryPanelElement;
-	}
+    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
+    }
+    var HTMLAppHomeElement: {
+        prototype: HTMLAppHomeElement;
+        new (): HTMLAppHomeElement;
+    };
+    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
+    }
+    var HTMLAppProfileElement: {
+        prototype: HTMLAppProfileElement;
+        new (): HTMLAppProfileElement;
+    };
+    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
+    }
+    var HTMLAppRootElement: {
+        prototype: HTMLAppRootElement;
+        new (): HTMLAppRootElement;
+    };
+    interface HTMLCategoryCardElement extends Components.CategoryCard, HTMLStencilElement {
+    }
+    var HTMLCategoryCardElement: {
+        prototype: HTMLCategoryCardElement;
+        new (): HTMLCategoryCardElement;
+    };
+    interface HTMLCategoryColumnElement extends Components.CategoryColumn, HTMLStencilElement {
+    }
+    var HTMLCategoryColumnElement: {
+        prototype: HTMLCategoryColumnElement;
+        new (): HTMLCategoryColumnElement;
+    };
+    interface HTMLCategoryPanelElement extends Components.CategoryPanel, HTMLStencilElement {
+    }
+    var HTMLCategoryPanelElement: {
+        prototype: HTMLCategoryPanelElement;
+        new (): HTMLCategoryPanelElement;
+    };
+    interface HTMLElementTagNameMap {
+        "app-home": HTMLAppHomeElement;
+        "app-profile": HTMLAppProfileElement;
+        "app-root": HTMLAppRootElement;
+        "category-card": HTMLCategoryCardElement;
+        "category-column": HTMLCategoryColumnElement;
+        "category-panel": HTMLCategoryPanelElement;
+    }
 }
 declare namespace LocalJSX {
-	interface AppHome {}
-	interface AppProfile {
-		match?: MatchResults;
-	}
-	interface AppRoot {}
-	interface CategoryCard {
-		isSelected: boolean;
-		name: string;
-		status: string;
-	}
-	interface CategoryColumn {
-		cards: ICategoryCard[];
-		columnIndex: number;
-		selectedCard: { x: number; y: number };
-	}
-	interface CategoryPanel {}
-	interface IntrinsicElements {
-		"app-home": AppHome;
-		"app-profile": AppProfile;
-		"app-root": AppRoot;
-		"category-card": CategoryCard;
-		"category-column": CategoryColumn;
-		"category-panel": CategoryPanel;
-	}
+    interface AppHome {
+    }
+    interface AppProfile {
+        "match"?: MatchResults;
+    }
+    interface AppRoot {
+    }
+    interface CategoryCard {
+        "isSelected": boolean;
+        "name": string;
+        "status": string;
+    }
+    interface CategoryColumn {
+        "cards": ICategoryCard[];
+        "columnIndex": number;
+        "selectedCard": { x: number; y: number };
+    }
+    interface CategoryPanel {
+    }
+    interface IntrinsicElements {
+        "app-home": AppHome;
+        "app-profile": AppProfile;
+        "app-root": AppRoot;
+        "category-card": CategoryCard;
+        "category-column": CategoryColumn;
+        "category-panel": CategoryPanel;
+    }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
-	export namespace JSX {
-		interface IntrinsicElements {
-			"app-home": LocalJSX.AppHome &
-				JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-			"app-profile": LocalJSX.AppProfile &
-				JSXBase.HTMLAttributes<HTMLAppProfileElement>;
-			"app-root": LocalJSX.AppRoot &
-				JSXBase.HTMLAttributes<HTMLAppRootElement>;
-			"category-card": LocalJSX.CategoryCard &
-				JSXBase.HTMLAttributes<HTMLCategoryCardElement>;
-			"category-column": LocalJSX.CategoryColumn &
-				JSXBase.HTMLAttributes<HTMLCategoryColumnElement>;
-			"category-panel": LocalJSX.CategoryPanel &
-				JSXBase.HTMLAttributes<HTMLCategoryPanelElement>;
-		}
-	}
+    export namespace JSX {
+        interface IntrinsicElements {
+            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
+            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "category-card": LocalJSX.CategoryCard & JSXBase.HTMLAttributes<HTMLCategoryCardElement>;
+            "category-column": LocalJSX.CategoryColumn & JSXBase.HTMLAttributes<HTMLCategoryColumnElement>;
+            "category-panel": LocalJSX.CategoryPanel & JSXBase.HTMLAttributes<HTMLCategoryPanelElement>;
+        }
+    }
 }

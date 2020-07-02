@@ -14,13 +14,5 @@ insert_final_newline = true
 [{GNUmakefile,Makefile,makefile,*.mk}]
 indent_style = tab
 
-[*.{yaml,yml}]
-indent_style = space
-tab_width = 4
-
-#[*.{json,json5]]
-#indent_style = space
-#tab_width = 2
-
 [*.{diff,md}]
 trim_trailing_whitespace = false

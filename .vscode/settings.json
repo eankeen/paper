@@ -5,5 +5,7 @@
 	},
 	"eslint.enable": true,
 	"eslint.packageManager": "yarn",
-	"eslint.validate": ["vue", "html", "javacsript"]
+	"eslint.validate": ["vue", "html", "javacsript"],
+	"editor.tabSize": 3,
+	"prettier.tabWidth": 3
 }
