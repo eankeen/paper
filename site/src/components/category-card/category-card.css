@@ -1,24 +1,25 @@
 section {
-  padding: var(--spacing);
-  border-radius: 5px;
-  border: 2px solid gray;
+	padding: var(--spacing);
+	border-radius: 5px;
+	border: 2px solid gray;
 }
 
 section.selected {
-  border: 2px solid black;
+	border: 2px solid black;
 	box-shadow: 1px 1px 3px 3px lightgray;
 }
 
-h2, p {
+h2,
+p {
 	margin: 0;
 	padding: 0;
 }
 
 h2 {
-  font-size: 18px;
-  font-weight: bold;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 p {
-  font-size: 14px;
+	font-size: 14px;
 }

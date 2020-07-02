@@ -1,13 +1,9 @@
 {
-  "typescript.tsserver.maxTsServerMemory": 6000,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.enable": true,
-  "eslint.packageManager": "yarn",
-  "eslint.validate": [
-    "vue",
-    "html",
-    "javacsript"
-  ]
+	"typescript.tsserver.maxTsServerMemory": 6000,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"eslint.enable": true,
+	"eslint.packageManager": "yarn",
+	"eslint.validate": ["vue", "html", "javacsript"]
 }

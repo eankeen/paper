@@ -1,4 +1,4 @@
-#!/bin/sh -eu
+#!/bin/bash -eu
 
 [ "${1:-""}" = "kill" ] && {
 	for num in 3000 3001 5000 3333 3334 3335 3336; do sudo fuser -k "$num/tcp"; done
