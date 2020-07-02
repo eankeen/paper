@@ -2,6 +2,7 @@ import { Component, Prop, h } from "@stencil/core";
 
 export interface ICategoryCard {
 	name: string;
+	description: string;
 	status: string;
 }
 
