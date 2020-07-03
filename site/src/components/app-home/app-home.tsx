@@ -28,6 +28,16 @@ export class AppHome {
 		y: 0,
 	};
 
+	// formats cards to be read
+	format(): Record<string, any> {
+		let cards: ICategoryCard[] = [];
+		for (const status of cardStatuses) {
+			cards = cards.concat(this.cards[status]);
+		}
+
+		return { cards };
+	}
+
 	setNewCard(direction: "previous" | "next"): void {
 		const adjustment = direction === "previous" ? -1 : 1;
 
@@ -46,7 +56,23 @@ export class AppHome {
 		cards[nextColumnStatus] = nextColumnStatusArray;
 		this.cards = cards;
 
-		this.selectedCard = Object.create(this.selectedCard);
+		// this.selectedCard = Object.create(this.selectedCard);
+	}
+
+	saveData() {
+		fetch("/api/set", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ ...this.format() }),
+		})
+			.then(() => {
+				// console.log(res);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	}
 
 	newLocationOutOfBounds({
@@ -66,14 +92,11 @@ export class AppHome {
 			];
 			if (newY >= 0 && newY < columnStatusArray.length) return false;
 			return true;
-			// return true;
 		}
 		throw new Error(`invalid parameters to function: ${newX}, ${newY}`);
 	}
 
 	onKeyPress(ev) {
-		console.log(this.selectedCard.x);
-
 		if (ev.altKey && ev.shiftKey && ev.code === "KeyL") {
 			const newX = this.selectedCard.x + 1;
 			if (this.newLocationOutOfBounds({ x: newX })) return;
@@ -119,6 +142,8 @@ export class AppHome {
 				y: this.selectedCard.y,
 			};
 		}
+
+		this.saveData();
 	}
 
 	connectedCallback() {

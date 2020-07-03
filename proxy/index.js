@@ -4,7 +4,7 @@ const httpProxy = require("http-proxy");
 const proxyApi = new httpProxy.createProxyServer({
 	target: {
 		host: "127.0.0.1",
-		port: 3000,
+		port: 3001,
 	},
 });
 proxyApi.on("error", () => {});
